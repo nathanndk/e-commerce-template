@@ -15,12 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,13 +48,9 @@ Route::get('/contact', function () {
     return view('contact');
 })->middleware(['auth', 'verified'])->name('contact');
 
-Route::get('/men', function () {
-    return view('men');
+Route::get('/shoes', function () {
+    return view('shoes');
 })->middleware(['auth', 'verified'])->name('men');
-
-Route::get('/women', function () {
-    return view('women');
-})->middleware(['auth', 'verified'])->name('women');
 
 Route::get('/product-detail', function () {
     return view('product-detail');
@@ -67,7 +59,3 @@ Route::get('/product-detail', function () {
 Route::get('/order-complete', function () {
     return view('order-complete');
 })->middleware(['auth', 'verified'])->name('order-complete');
-
-Route::get('/index', function () {
-    return view('index');
-})->middleware(['auth', 'verified'])->name('index');
